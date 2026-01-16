@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-residencial">
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
@@ -27,6 +27,18 @@
                 </ul>
             </div>
         </nav>
+        <!-- Viñetas de selección -->
+        <div class="plan-selector-nav">
+            <div class="container">
+                <button class="selector-btn active" data-tab="residencial">
+                    Internet Residencial
+                </button>
+                <span class="separator">|</span>
+                <button class="selector-btn" data-tab="empresarial">
+                    Internet Empresarial
+                </button>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -44,18 +56,24 @@
         <div class="container">
             <h2 class="section-title">Nuestros Planes de Internet</h2>
             <p class="section-subtitle">Elige el plan perfecto para tus necesidades</p>
-            
+
+            <!-- Contenido Residencial -->
+            <div class="tab-content active" id="residencial">
             <div class="planes-grid">
-                <!-- Plan Básico -->
+                <!-- Plan Básico Residencial -->
                 <div class="plan-card">
                     <div class="plan-header">
                         <h3>Plan Básico</h3>
                         <div class="plan-speed">50 Mbps</div>
                     </div>
                     <div class="plan-price">
-                        <span class="currency">Q</span>
-                        <span class="amount">299</span>
-                        <span class="period">/mes</span>
+                        <span class="price-label">Desde</span>
+                        <div class="price-amount">
+                            <span class="currency">Q</span>
+                            <span class="amount">299</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <span class="price-note">*Precio estimado</span>
                     </div>
                     <ul class="plan-features">
                         <li>✓ Velocidad de descarga: 50 Mbps</li>
@@ -64,11 +82,12 @@
                         <li>✓ Router WiFi incluido</li>
                         <li>✓ Soporte técnico 24/7</li>
                         <li>✓ Sin permanencia</li>
+                        <li>✓ Perfecto para navegación y streaming</li>
                     </ul>
                     <a href="#contacto" class="btn btn-outline">Contratar</a>
                 </div>
 
-                <!-- Plan Hogar -->
+                <!-- Plan Hogar Residencial -->
                 <div class="plan-card featured">
                     <div class="badge">Más Popular</div>
                     <div class="plan-header">
@@ -76,9 +95,13 @@
                         <div class="plan-speed">100 Mbps</div>
                     </div>
                     <div class="plan-price">
-                        <span class="currency">Q</span>
-                        <span class="amount">499</span>
-                        <span class="period">/mes</span>
+                        <span class="price-label">Desde</span>
+                        <div class="price-amount">
+                            <span class="currency">Q</span>
+                            <span class="amount">499</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <span class="price-note">*Precio estimado</span>
                     </div>
                     <ul class="plan-features">
                         <li>✓ Velocidad de descarga: 100 Mbps</li>
@@ -86,60 +109,211 @@
                         <li>✓ Instalación gratuita</li>
                         <li>✓ Router WiFi Premium incluido</li>
                         <li>✓ Soporte técnico prioritario 24/7</li>
-                        <li>✓ IP estática opcional</li>
+                        <li>✓ Ideal para familias y teletrabajo</li>
                         <li>✓ Sin permanencia</li>
                     </ul>
                     <a href="#contacto" class="btn btn-primary">Contratar</a>
                 </div>
 
-                <!-- Plan Empresarial -->
+                <!-- Plan Premium Residencial -->
                 <div class="plan-card">
                     <div class="plan-header">
-                        <h3>Plan Empresarial</h3>
+                        <h3>Plan Premium</h3>
                         <div class="plan-speed">200 Mbps</div>
                     </div>
                     <div class="plan-price">
-                        <span class="currency">Q</span>
-                        <span class="amount">899</span>
-                        <span class="period">/mes</span>
+                        <span class="price-label">Desde</span>
+                        <div class="price-amount">
+                            <span class="currency">Q</span>
+                            <span class="amount">799</span>
+                            <span class="period">/mes</span>
+                        </div>
+                        <span class="price-note">*Precio estimado</span>
                     </div>
                     <ul class="plan-features">
                         <li>✓ Velocidad de descarga: 200 Mbps</li>
                         <li>✓ Velocidad de carga: 40 Mbps</li>
                         <li>✓ Instalación gratuita</li>
-                        <li>✓ Router empresarial incluido</li>
-                        <li>✓ Soporte técnico dedicado 24/7</li>
-                        <li>✓ IP estática incluida</li>
-                        <li>✓ SLA garantizado</li>
-                        <li>✓ Respaldo de energía</li>
-                    </ul>
-                    <a href="#contacto" class="btn btn-outline">Contratar</a>
-                </div>
-
-                <!-- Plan Ultra -->
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3>Plan Ultra</h3>
-                        <div class="plan-speed">500 Mbps</div>
-                    </div>
-                    <div class="plan-price">
-                        <span class="currency">Q</span>
-                        <span class="amount">1,499</span>
-                        <span class="period">/mes</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li>✓ Velocidad de descarga: 500 Mbps</li>
-                        <li>✓ Velocidad de carga: 100 Mbps</li>
-                        <li>✓ Instalación premium gratuita</li>
                         <li>✓ Router WiFi 6 incluido</li>
                         <li>✓ Soporte técnico VIP 24/7</li>
-                        <li>✓ IP estática incluida</li>
-                        <li>✓ SLA 99.9% garantizado</li>
-                        <li>✓ Respaldo de energía y enlace</li>
+                        <li>✓ Gaming y streaming 4K</li>
+                        <li>✓ Sin permanencia</li>
                     </ul>
                     <a href="#contacto" class="btn btn-outline">Contratar</a>
                 </div>
             </div>
+            </div>
+
+            <!-- Contenido Empresarial -->
+            <div class="tab-content" id="empresarial">
+                <div class="enterprise-intro">
+                    <h3>Soluciones Empresariales de Alta Disponibilidad</h3>
+                    <p>Conectividad profesional diseñada para empresas que no pueden permitirse interrupciones. Infraestructura robusta con garantías de servicio y soporte especializado.</p>
+                </div>
+                
+            <!-- Servicios Destacados en Layout de Columnas -->
+            <div class="services-showcase">
+                <h3 class="services-title">Nuestros Servicios Empresariales</h3>
+                
+                <div class="services-columns">
+                    <!-- Columna Izquierda -->
+                    <div class="service-column">
+                        <div class="service-item">
+                            <div class="service-number">01</div>
+                            <div class="service-content">
+                                <h4> Redundancia de Enlace</h4>
+                                <p>Protección total con enlaces de respaldo que se activan automáticamente. Doble conexión con balanceo de carga.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-number">02</div>
+                            <div class="service-content">
+                                <h4> SLA Garantizado</h4>
+                                <p>Hasta 99.9% de disponibilidad con tiempo de respuesta de 1-4 horas. Compensaciones automáticas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-number">03</div>
+                            <div class="service-content">
+                                <h4> Seguridad Avanzada</h4>
+                                <p>Firewall Next-Gen, VPN dedicada y protección DDoS. Múltiples capas de seguridad perimetral.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-number">04</div>
+                            <div class="service-content">
+                                <h4> QoS Personalizado</h4>
+                                <p>Priorización inteligente de tráfico para VoIP, videoconferencias y aplicaciones críticas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna Central - Destacada -->
+                    <div class="service-column-center">
+                        <div class="center-highlight">
+                            <div class="highlight-icon">🏢</div>
+                            <h3>Soluciones Corporativas Premium</h3>
+                            <p>Infraestructura diseñada para empresas que exigen el máximo rendimiento</p>
+                            <ul class="highlight-features">
+                                <li>✓ Ancho de banda 100% simétrico</li>
+                                <li>✓ IPs estáticas dedicadas</li>
+                                <li>✓ Soporte 24/7/365</li>
+                                <li>✓ Ingeniero asignado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna Derecha -->
+                    <div class="service-column">
+                        <div class="service-item">
+                            <div class="service-number">05</div>
+                            <div class="service-content">
+                                <h4> Ancho de Banda Simétrico</h4>
+                                <p>Desde 100/100 Mbps hasta 1 Gbps. Ideal para videoconferencias y transferencias en la nube.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-number">06</div>
+                            <div class="service-content">
+                                <h4> IPs Estáticas Dedicadas</h4>
+                                <p>Bloques de hasta 8 IPs públicas. Perfectas para servidores y acceso remoto VPN.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-number">07</div>
+                            <div class="service-content">
+                                <h4> Monitoreo 24/7</h4>
+                                <p>Vigilancia constante con alertas tempranas. Reportes mensuales de rendimiento detallados.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-number">08</div>
+                            <div class="service-content">
+                                <h4> Equipamiento Premium</h4>
+                                <p>Routers empresariales Cisco/Mikrotik con capacidades avanzadas de gestión y seguridad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alianzas Estratégicas -->
+            <div class="strategic-alliances">
+                <h3>Alianzas Estratégicas</h3>
+                <p class="alliances-subtitle">Trabajamos con los líderes de la industria para ofrecer soluciones de clase mundial</p>
+                
+                <div class="alliances-grid">
+                    <div class="alliance-item">
+                        <div class="alliance-logo">CISCO</div>
+                        <p>Partner Certificado</p>
+                    </div>
+                    <div class="alliance-item">
+                        <div class="alliance-logo">MikroTik</div>
+                        <p>Distribuidor Autorizado</p>
+                    </div>
+                    <div class="alliance-item">
+                        <div class="alliance-logo">Fortinet</div>
+                        <p>Partner de Seguridad</p>
+                    </div>
+                    <div class="alliance-item">
+                        <div class="alliance-logo">Ubiquiti</div>
+                        <p>Elite Partner</p>
+                    </div>
+                    <div class="alliance-item">
+                        <div class="alliance-logo">VMware</div>
+                        <p>Cloud Solutions</p>
+                    </div>
+                    <div class="alliance-item">
+                        <div class="alliance-logo">Microsoft</div>
+                        <p>Azure Certified</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Servicios Adicionales -->
+            <div class="additional-services">
+                <h3>Servicios Complementarios</h3>
+                <div class="services-list">
+                    <div class="service-badge">
+                        <span class="badge-icon"></span>
+                        <span class="badge-text">Ingeniero Dedicado</span>
+                    </div>
+                    <div class="service-badge">
+                        <span class="badge-icon"></span>
+                        <span class="badge-text">Planes Personalizados</span>
+                    </div>
+                    <div class="service-badge">
+                        <span class="badge-icon"></span>
+                        <span class="badge-text">Soporte Prioritario</span>
+                    </div>
+                    <div class="service-badge">
+                        <span class="badge-icon"></span>
+                        <span class="badge-text">Escalabilidad Ilimitada</span>
+                    </div>
+                    <div class="service-badge">
+                        <span class="badge-icon"></span>
+                        <span class="badge-text">Configuración On-Site</span>
+                    </div>
+                    <div class="service-badge">
+                        <span class="badge-icon"></span>
+                        <span class="badge-text">Auditoría de Red</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="enterprise-cta">
+                <h3>Solicite una Cotización Personalizada</h3>
+                <p>Nuestros especialistas evaluarán sus necesidades y diseñarán la solución perfecta para su empresa</p>
+                <a href="#contacto" class="btn btn-primary btn-large">Contactar a un Especialista</a>
+            </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -151,49 +325,49 @@
             
             <div class="ventajas-grid">
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">⚡</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Velocidad Real</h3>
                     <p>Ofrecemos la velocidad que prometemos. Sin letra pequeña, sin sorpresas. Nuestros clientes obtienen el 100% del ancho de banda contratado.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">🔒</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Conexión Segura</h3>
                     <p>Tecnología de última generación con protección contra amenazas cibernéticas. Tu información y navegación están protegidas las 24 horas.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">📡</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Fibra Óptica</h3>
                     <p>Infraestructura 100% de fibra óptica hasta tu hogar o empresa. Mayor estabilidad, menor latencia y velocidades simétricas.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">🛠️</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Soporte 24/7</h3>
                     <p>Equipo técnico disponible todos los días del año. Resolvemos tus problemas rápidamente con atención personalizada en español.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">💰</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Sin Cargos Ocultos</h3>
                     <p>Precios transparentes y competitivos. Lo que ves es lo que pagas. Sin costos de instalación, sin cláusulas de permanencia obligatoria.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">🎯</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Cobertura Local</h3>
                     <p>Empresa guatemalteca con presencia local. Conocemos las necesidades de nuestro mercado y ofrecemos soluciones adaptadas a ti.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">📈</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Escalabilidad</h3>
                     <p>Crece a tu ritmo. Actualiza tu plan en cualquier momento sin complicaciones ni penalizaciones. Adaptamos el servicio a tus necesidades.</p>
                 </div>
 
                 <div class="ventaja-card">
-                    <div class="ventaja-icon">⭐</div>
+                    <div class="ventaja-icon"></div>
                     <h3>Satisfacción Garantizada</h3>
                     <p>Más del 95% de satisfacción de clientes. Nos importa tu experiencia y trabajamos constantemente para mejorar nuestro servicio.</p>
                 </div>
@@ -237,7 +411,7 @@
             <div class="contacto-grid">
                 <div class="contacto-info">
                     <div class="info-item">
-                        <div class="info-icon">📍</div>
+                        <div class="info-icon"></div>
                         <div>
                             <h4>Dirección</h4>
                             <p>3a. calle 4-10 San Lucas Sacatepéquez,<br>Guatemala</p>
@@ -245,7 +419,7 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon">📧</div>
+                        <div class="info-icon"></div>
                         <div>
                             <h4>Email</h4>
                             <p><a href="mailto:ramiro.samayoa@tisa.com">ramiro.samayoa@tisa.com</a></p>
@@ -253,7 +427,7 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon">📱</div>
+                        <div class="info-icon"></div>
                         <div>
                             <h4>Teléfono</h4>
                             <p><a href="tel:+50231359988">(+502) 3135-9988</a></p>
@@ -261,7 +435,7 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon">🌐</div>
+                        <div class="info-icon"></div>
                         <div>
                             <h4>Sitio Web</h4>
                             <p><a href="http://www.tisa.com" target="_blank">www.TISA.COM</a></p>

@@ -6,6 +6,7 @@
 }
 
 :root {
+    /* Colores Residenciales (por defecto) */
     --primary-color: #1e3a8a;
     --secondary-color: #7dd956;
     --dark-blue: #0f172a;
@@ -14,6 +15,26 @@
     --text-light: #64748b;
     --white: #ffffff;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --gradient-start: #1e3a8a;
+    --gradient-end: #3b82f6;
+}
+
+/* Tema Residencial */
+body.theme-residencial {
+    --primary-color: #1e3a8a;
+    --secondary-color: #7dd956;
+    --gradient-start: #1e3a8a;
+    --gradient-end: #3b82f6;
+    --light-gray: #f1f5f9;
+}
+
+/* Tema Empresarial */
+body.theme-empresarial {
+    --primary-color: #0f172a;
+    --secondary-color: #60a5fa;
+    --gradient-start: #0f172a;
+    --gradient-end: #1e40af;
+    --light-gray: #e2e8f0;
 }
 
 body {
@@ -37,6 +58,69 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+}
+
+/* Viñetas de selección en el navbar */
+.plan-selector-nav {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    padding: 1rem 0;
+    text-align: center;
+    transition: all 0.4s ease;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theme-empresarial .plan-selector-nav {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.plan-selector-nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.selector-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.7rem 2rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+}
+
+.selector-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.selector-btn.active {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--gradient-start);
+    font-weight: 700;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+body.theme-empresarial .selector-btn.active {
+    color: #0f172a;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 1rem;
+    font-size: 1.2rem;
 }
 
 .navbar .container {
@@ -89,16 +173,21 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
     min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
-    margin-top: 80px;
+    margin-top: 130px;
     position: relative;
     overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+body.theme-empresarial .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 .hero::before {
@@ -173,6 +262,7 @@ body {
 /* Secciones */
 section {
     padding: 80px 0;
+    transition: background-color 0.4s ease;
 }
 
 .section-title {
@@ -181,6 +271,7 @@ section {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-weight: 700;
+    transition: color 0.4s ease;
 }
 
 .section-subtitle {
@@ -190,9 +281,57 @@ section {
     margin-bottom: 3rem;
 }
 
+/* Transiciones para tema empresarial */
+body.theme-empresarial .section-title {
+    color: #0f172a;
+}
+
+body.theme-empresarial .btn-primary {
+    background: #60a5fa;
+    border-color: #60a5fa;
+    color: var(--dark-blue);
+}
+
+body.theme-empresarial .btn-primary:hover {
+    background: #3b82f6;
+}
+
+body.theme-empresarial .plan-card.featured {
+    border-color: #0f172a;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.2);
+}
+
 /* Planes */
 .planes {
     background: var(--light-gray);
+    transition: background-color 0.4s ease;
+}
+
+/* Selector de Viñetas */
+.plan-selector {
+    text-align: center;
+    margin: 1.5rem 0 3rem;
+    font-size: 1rem;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeInTab 0.5s ease;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .planes-grid {
@@ -208,7 +347,7 @@ section {
     padding: 2rem;
     text-align: center;
     box-shadow: var(--shadow);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.4s;
     position: relative;
 }
 
@@ -220,6 +359,7 @@ section {
 .plan-card.featured {
     border: 3px solid var(--secondary-color);
     transform: scale(1.05);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.4s;
 }
 
 .plan-card.featured:hover {
@@ -249,26 +389,56 @@ section {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Precios en planes residenciales */
 .plan-price {
-    margin: 2rem 0;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(125, 217, 86, 0.05) 100%);
+    border-radius: 10px;
+}
+
+.plan-price .price-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-price .price-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.3rem;
 }
 
 .plan-price .currency {
-    font-size: 1.5rem;
-    vertical-align: top;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .plan-price .amount {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--primary-color);
 }
 
 .plan-price .period {
+    font-size: 1rem;
     color: var(--text-light);
+}
+
+.plan-price .price-note {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+    font-style: italic;
 }
 
 .plan-features {
@@ -284,6 +454,366 @@ section {
 
 .plan-card .btn {
     margin-top: 1rem;
+}
+
+/* Planes Empresariales */
+.enterprise-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(30, 58, 138, 0.3);
+}
+
+body.theme-empresarial .enterprise-intro {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.enterprise-intro h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.enterprise-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Showcase de Servicios - Layout de 3 Columnas */
+.services-showcase {
+    margin-bottom: 4rem;
+}
+
+.services-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+body.theme-empresarial .services-title {
+    color: #0f172a;
+}
+
+.services-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.service-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.service-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 15px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+body.theme-empresarial .service-item {
+    border-left-color: #0f172a;
+}
+
+.service-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.service-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(125, 217, 86, 0.1) 0%, rgba(125, 217, 86, 0.05) 100%);
+    border-radius: 10px;
+}
+
+body.theme-empresarial .service-number {
+    color: #60a5fa;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%);
+}
+
+.service-content h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+body.theme-empresarial .service-content h4 {
+    color: #0f172a;
+}
+
+.service-content p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Columna Central Destacada */
+.service-column-center {
+    display: flex;
+    align-items: center;
+}
+
+.center-highlight {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(30, 58, 138, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+body.theme-empresarial .center-highlight {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.center-highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.highlight-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.center-highlight h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+}
+
+.center-highlight p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-features {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-features li {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* Alianzas Estratégicas */
+.strategic-alliances {
+    margin: 4rem 0;
+    padding: 3rem 2rem;
+    background: linear-gradient(to bottom, var(--white) 0%, var(--light-gray) 100%);
+    border-radius: 20px;
+}
+
+.strategic-alliances h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+body.theme-empresarial .strategic-alliances h3 {
+    color: #0f172a;
+}
+
+.alliances-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.alliances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.alliance-item {
+    background: var(--white);
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.alliance-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+body.theme-empresarial .alliance-item:hover {
+    border-color: #0f172a;
+}
+
+.alliance-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+body.theme-empresarial .alliance-logo {
+    color: #0f172a;
+}
+
+.alliance-item p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Servicios Adicionales */
+.additional-services {
+    margin: 3rem 0;
+}
+
+.additional-services h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+body.theme-empresarial .additional-services h3 {
+    color: #0f172a;
+}
+
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    background: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+body.theme-empresarial .service-badge {
+    border-color: #0f172a;
+    color: #0f172a;
+}
+
+.service-badge:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+body.theme-empresarial .service-badge:hover {
+    background: #0f172a;
+    color: var(--white);
+}
+
+.badge-icon {
+    font-size: 1.3rem;
+}
+
+.badge-text {
+    font-size: 0.95rem;
+}
+
+/* CTA Empresarial */
+.enterprise-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(125, 217, 86, 0.05) 100%);
+    border-radius: 20px;
+    margin-top: 3rem;
+}
+
+body.theme-empresarial .enterprise-cta {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.05) 0%, rgba(96, 165, 250, 0.05) 100%);
+}
+
+.enterprise-cta h3 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+body.theme-empresarial .enterprise-cta h3 {
+    color: #0f172a;
+}
+
+.enterprise-cta p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-large {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
 }
 
 /* Ventajas */
@@ -516,6 +1046,10 @@ section {
         gap: 1rem;
     }
 
+    .hero {
+        margin-top: 160px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
@@ -526,6 +1060,78 @@ section {
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .plan-selector-nav {
+        padding: 0.8rem 0;
+    }
+
+    .selector-btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+        display: block;
+        width: 100%;
+        margin: 0.3rem 0;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .enterprise-intro {
+        font-size: 1rem;
+        padding: 1.5rem;
+    }
+
+    .services-title {
+        font-size: 1.8rem;
+    }
+
+    .services-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-number {
+        margin: 0 auto;
+    }
+
+    .center-highlight {
+        padding: 2rem 1.5rem;
+    }
+
+    .center-highlight h3 {
+        font-size: 1.5rem;
+    }
+
+    .alliances-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .alliance-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .alliance-logo {
+        font-size: 1.2rem;
+    }
+
+    .services-list {
+        flex-direction: column;
+    }
+
+    .service-badge {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .enterprise-grid {
+        grid-template-columns: 1fr;
     }
 
     .planes-grid {

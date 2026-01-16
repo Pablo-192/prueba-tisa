@@ -12,6 +12,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Funcionalidad de viñetas de selección con cambio de tema
+const selectorButtons = document.querySelectorAll('.selector-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+selectorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetTab = button.getAttribute('data-tab');
+        
+        // Remover clase active de todos los botones y contenidos
+        selectorButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Agregar clase active al botón clickeado
+        button.classList.add('active');
+        
+        // Cambiar tema del body
+        if (targetTab === 'empresarial') {
+            document.body.classList.remove('theme-residencial');
+            document.body.classList.add('theme-empresarial');
+        } else {
+            document.body.classList.remove('theme-empresarial');
+            document.body.classList.add('theme-residencial');
+        }
+        
+        // Mostrar el contenido correspondiente
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+
+        // Re-aplicar animaciones a las tarjetas
+        const cards = targetContent.querySelectorAll('.plan-card, .enterprise-feature');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+});
+
 // Manejo del formulario de contacto
 const contactForm = document.querySelector('.contacto-form form');
 if (contactForm) {
